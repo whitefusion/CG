@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CS600.457 Computer Graphics Assignment 2</title>
+    <link href="https://fonts.googleapis.com/css?family=Geo" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Geo', serif;
+        }
+
+        html {
+            background: -webkit-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%)
+        }
+        header,body {
+            width: 600px;
+            margin: auto;
+        }
+
+        .preview {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .preview h4 {
+            text-align: center;
+        }
+        .cg_img {
+            width: 250px;
+            height: 250px;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0), 0 12px 40px 0 rgba(64, 0, 0, 0.8);
+
+        }
+
+        @media screen and (max-width: 500px) {
+            header {
+                margin-left: 2em;
+            }
+            .preview {
+                width: 400px;
+                margin: auto;
+            }
+            .cg_img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <h2>xbai9 : Assignment2 results preview</h2>
+        <h4>Environment: Ubuntu 32-bit</h4>
+    </header>
+    <section class='preview'>
+    </section>
+    <script>
+        var obj = {
+            'diffuse':'Diffuse Light',
+            'sphere':'Sphere/Specular/Shadow',
+            'shadow':'Transform/Shadow',
+            'transparent':'Transparent Effect',
+            'refract':'Refract',
+            'dog':'dog',
+            'bunny':'Bunny',
+            'budda':'Budda'
+        };
+
+        var content = '';
+        for(let i in obj){
+            var temp_src = 'results/'+i+'.bmp';
+            content+=
+            `<div>
+                <img class="cg_img" src="${temp_src}" alt="${obj[i]}">
+                <h4>${obj[i]}</h4>
+            </div>`;
+        }
+        console.log(content);
+        document.getElementsByClassName('preview')[0].innerHTML=content;
+    </script>
+</body>
+</html>
